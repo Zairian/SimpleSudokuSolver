@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/loader_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/theToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#2196F3"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="Simple Sudoku Solver" />
+
+    <com.example.sudokusolver.view.custom.SudokuBoardView
+        android:id="@+id/sudokuBoardView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/theToolbar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:maxHeight="180dp"
+        app:layout_constraintHeight_max="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/conflictWarning">
+
+        <Button
+            android:id="@+id/oneButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/_1"
+            android:textSize="24sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/fourButton"
+            app:layout_constraintEnd_toStartOf="@+id/twoButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="3" />
+
+        <Button
+            android:id="@+id/twoButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/_2"
+            android:textSize="24sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@id/fiveButton"
+            app:layout_constraintEnd_toStartOf="@+id/threeButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toEndOf="@+id/oneButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="3" />
+
+        <Button
+            android:id="@+id/threeButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/_3"
+            android:textSize="24sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/sixButton"
+            app:layout_constraintEnd_toEndOf="@id/sixButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toEndOf="@+id/twoButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="3" />
+
+        <Button
+            android:id="@+id/fourButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/_4"
+            android:textSize="24sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/sevenButton"
+            app:layout_constraintEnd_toStartOf="@+id/fiveButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/oneButton"
+            app:layout_constraintVertical_weight="3" />
+
+        <Button
+            android:id="@+id/fiveButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/_5"
+            android:textSize="24sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/sevenButton"
+            app:layout_constraintEnd_toStartOf="@+id/sixButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toEndOf="@+id/fourButton"
+            app:layout_constraintTop_toBottomOf="@+id/twoButton"
+            app:layout_constraintVertical_weight="3" />
+
+        <Button
+            android:id="@+id/sixButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/_6"
+            android:textSize="24sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/nineButton"
+            app:layout_constraintEnd_toStartOf="@id/deleteButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toEndOf="@+id/fiveButton"
+            app:layout_constraintTop_toBottomOf="@+id/threeButton"
+            app:layout_constraintVertical_weight="3" />
+
+        <Button
+            android:id="@+id/sevenButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/_7"
+            android:textSize="24sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/eightButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fourButton"
+            app:layout_constraintVertical_weight="3" />
+
+        <Button
+            android:id="@+id/eightButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/_8"
+            android:textSize="24sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/nineButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toEndOf="@+id/sevenButton"
+            app:layout_constraintTop_toBottomOf="@+id/fiveButton"
+            app:layout_constraintVertical_weight="3" />
+
+        <Button
+            android:id="@+id/nineButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/_9"
+            android:textSize="24sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/solveButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toEndOf="@+id/eightButton"
+            app:layout_constraintTop_toBottomOf="@+id/sixButton"
+            app:layout_constraintVertical_weight="3" />
+
+        <Button
+            android:id="@+id/solveButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="@string/solve"
+            android:textSize="18sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toEndOf="@id/sixButton"
+            app:layout_constraintTop_toBottomOf="@id/deleteButton"
+            app:layout_constraintVertical_weight="2" />
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="@string/delete"
+            android:textSize="18sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@id/solveButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toEndOf="@+id/sixButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/conflictWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/please_remove_invalid_cells"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sudokuBoardView" />
+
+    <TextView
+        android:id="@+id/unSolveableWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_solution_exists_for_this_sudoku"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sudokuBoardView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

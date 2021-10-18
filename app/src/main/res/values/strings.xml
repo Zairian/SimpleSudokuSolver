@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Simple Sudoku Solver</string>
+    <string name="clear">Clear</string>
+    <string name="solve">Solve</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="please_remove_invalid_cells">Please remove invalid cells</string>
+    <string name="no_solution_exists_for_this_sudoku">No solution exists for this sudoku</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="delete">Delete</string>
+</resources>
